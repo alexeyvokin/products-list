@@ -32,17 +32,25 @@ $font-size-base: 16px;
 $font-size-small: 12px;
 $font-size-extra-small: 10px;
 
+// transitions
+$transition-duration: 0.3s;
+
 // elements
+$control-padding: 10px $space-2 11px;
 $app-background: $white;
 
 $h1-font-size: $font-size-title;
+
+$button-border-radius: 10px;
+$button-padding: $control-padding;
 
 $form-label-font-size: $font-size-extra-small;
 $form-field-font-size: $font-size-small;
 $form-field-border-radius: $border-radius;
 $form-field-placeholder-color: $dark-gray;
-$form-field-padding: 10px $space-2 11px;
+$form-field-padding: $control-padding;
 $form-field-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$form-field-shadow-focus: 0 10px 25px rgba(0, 0, 0, 0.1); // also for hover state
 
 $card-border-radius: $border-radius;
 $card-background: $smoke;
