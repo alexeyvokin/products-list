@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'BaseTextarea',
 
   model: {
     prop: 'modelValue',
@@ -28,13 +28,15 @@ export default {
 </script>
 
 <template>
-  <input v-model="modelValueWrapper" class="base-input" />
+  <textarea v-model="modelValueWrapper" class="base-textarea" />
 </template>
 
 <style lang="scss" scoped>
-.base-input {
+.base-textarea {
+  min-height: 108px;
   width: 100%;
   padding: vars.$form-field-padding;
+  resize: none;
   border: none;
   border-radius: vars.$form-field-border-radius;
   box-shadow: vars.$form-field-shadow;

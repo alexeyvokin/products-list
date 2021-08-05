@@ -1,11 +1,13 @@
 <script>
 import BaseInput from './BaseInput.vue';
+import BaseTextarea from './BaseTextarea.vue';
 import FormItem from './FormItem.vue';
 
 export default {
   name: 'ProductsAddForm',
   components: {
     BaseInput,
+    BaseTextarea,
     FormItem,
   },
 };
@@ -17,11 +19,13 @@ export default {
       <FormItem label="Наименование товара" required>
         <BaseInput type="text" placeholder="Введите наименование товара" />
       </FormItem>
-      <FormItem label="Описание товара" />
+      <FormItem label="Описание товара">
+        <BaseTextarea placeholder="Введите описание товара" />
+      </FormItem>
       <FormItem label="Ссылка на изображение товара" required>
         <BaseInput type="text" placeholder="Введите ссылку" />
       </FormItem>
-      <FormItem label="Цена товара">
+      <FormItem label="Цена товара" required>
         <BaseInput type="text" placeholder="Введите цену" />
       </FormItem>
     </div>
