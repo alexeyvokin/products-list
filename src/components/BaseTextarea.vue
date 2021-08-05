@@ -41,9 +41,15 @@ export default {
   border-radius: vars.$form-field-border-radius;
   box-shadow: vars.$form-field-shadow;
   font-size: vars.$form-field-font-size;
+  transition: all vars.$transition-duration;
 
   &::placeholder {
     color: vars.$form-field-placeholder-color;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: vars.$form-field-shadow-focus;
   }
 }
 </style>
