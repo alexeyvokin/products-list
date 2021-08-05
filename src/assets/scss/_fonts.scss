@@ -1,0 +1,13 @@
+@use 'vars';
+@use 'mixins';
+
+@include mixins.add-font(
+  vars.$font-family,
+  '../fonts/source-sans-pro-v14-latin_cyrillic-regular',
+  vars.$font-weight-normal
+);
+@include mixins.add-font(
+  vars.$font-family,
+  '../fonts/source-sans-pro-v14-latin_cyrillic-600',
+  vars.$font-weight-semibold
+);

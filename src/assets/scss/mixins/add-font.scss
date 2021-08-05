@@ -1,0 +1,14 @@
+@use 'vars';
+
+@mixin add-font(
+  $family,
+  $url,
+  $weight: vars.$font-weight-normal
+) {
+  @font-face {
+    font-family: $family;
+    src: url($url + '.woff2') format('woff2'), url($url + '.woff') format('woff');
+    font-weight: $weight;
+    font-style: normal;
+  }
+}
