@@ -63,6 +63,8 @@ export default {
 }
 
 .products__form {
+  top: vars.$space-3;
+  position: sticky;
   padding: vars.$space-3;
 }
 </style>

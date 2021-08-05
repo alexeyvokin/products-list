@@ -34,6 +34,7 @@ export default {
 }
 
 .layout-page__sidebar {
+  position: relative;
   flex: 0 1 calc(25% - #{vars.$space-1});
   margin-right: vars.$space-2;
 }
