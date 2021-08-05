@@ -1,5 +1,5 @@
-@use 'vars';
-@use 'mixins';
+@use './vars';
+@use './mixins';
 
 @include mixins.add-font(
   vars.$font-family,
