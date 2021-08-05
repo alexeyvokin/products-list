@@ -25,3 +25,9 @@ body {
 a {
   color: $primary;
 }
+
+input,
+textarea,
+button {
+  font-family: $font-family;
+}
