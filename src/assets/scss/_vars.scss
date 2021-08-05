@@ -27,8 +27,19 @@ $font-weight-normal: 400;
 $font-size-title: 28px;
 $font-size-subtitle: 24px;
 $font-size-base: 16px;
+$font-size-small: 12px;
+$font-size-extra-small: 10px;
 
 // elements
 $app-background: $white;
 
 $h1-font-size: $font-size-title;
+
+$form-label-font-size: $font-size-extra-small;
+$form-field-font-size: $font-size-small;
+$form-field-placeholder-color: $dark-gray;
+$form-field-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+$card-border-radius: 4px;
+$card-background: $smoke;
+$card-shadow: 0 20px 30px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.02);

@@ -6,13 +6,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: 'base-layout' */ '@/layouts/Base.vue'),
-    children: [
-      {
-        path: '',
-        component: () => import(/* webpackChunkName: 'products' */ '@/views/Products.vue'),
-      },
-    ],
+    component: () => import(/* webpackChunkName: 'products' */ '@/views/Products.vue'),
   },
 ];
 

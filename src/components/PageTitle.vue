@@ -13,5 +13,6 @@ export default {
 <style lang="scss" scoped>
 .page-title {
   font-size: vars.$font-size-title;
+  margin: 0;
 }
 </style>

@@ -1,5 +1,5 @@
-@import "./vars";
-@import "./fonts";
+@import './vars';
+@import './fonts';
 
 *,
 *::before,
@@ -7,9 +7,8 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  min-height: 100%;
+html {
+  height: 100%;
 }
 
 body {
