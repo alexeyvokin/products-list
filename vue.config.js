@@ -11,7 +11,10 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: '@import "~@/assets/scss/vars";',
+        prependData: `
+          @use "~@/assets/scss/vars";
+          @use '~@/assets/scss/mixins';
+        `,
       },
     },
   },

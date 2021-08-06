@@ -1,16 +1,58 @@
-// common colors
-$--blue: #1390e5;
+// colors
+$white: #fff;
+$smoke: #fffefb;
+$gray: #eee;
+$dark-gray: #b4b4b4;
+$green: #7bae73;
+$peach: #ff8484;
+$black: #3f3f3f;
+$purple-black: #49485e;
 
-// theme settings
-$--primary: $--blue;
+// theme
+$primary: $green;
+$danger: $peach;
+
+// sizes
+$space-1: 8px;
+$space-2: $space-1 * 2;
+$space-3: $space-1 * 3;
+$space-4: $space-1 * 4;
+
+$border-radius: 4px;
 
 // fonts
-$--font-family: Avenir, Helvetica, Arial, sans-serif;
-$--font-weight-bold: 700;
-$--font-weight-medium: 500;
-$--font-weight-normal: 400;
-$--font-weight-thin: 200;
-$--font-size-small: 12px;
-$--font-size-base: 16px;
-$--font-size-title: 32px;
-$--font-size-subtitle: 24px;
+$font-family: 'Source Sans Pro';
+
+$font-weight-semibold: 600;
+$font-weight-normal: 400;
+
+$font-size-title: 28px;
+$font-size-subtitle: 20px;
+$font-size-accent: 24px;
+$font-size-base: 16px;
+$font-size-small: 12px;
+$font-size-x-small: 10px;
+$font-size-xx-small: 8px;
+
+// transitions
+$transition-duration: 0.3s;
+
+// elements
+$app-background: $white;
+
+$h1-font-size: $font-size-title;
+
+$button-border-radius: 10px;
+$button-padding: 10px $space-2 11px;
+
+$form-label-font-size: $font-size-x-small;
+$form-field-font-size: $font-size-small;
+$form-field-border-radius: $border-radius;
+$form-field-placeholder-color: $dark-gray;
+$form-field-padding: 9px $space-2 10px;
+$form-field-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$form-field-shadow-focus: 0 10px 25px rgba(0, 0, 0, 0.1); // also for hover state
+
+$card-border-radius: $border-radius;
+$card-background: $smoke;
+$card-shadow: 0 20px 30px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.02);

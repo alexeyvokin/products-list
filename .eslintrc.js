@@ -16,5 +16,13 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'arrow-parens': ['error', 'as-needed'],
     'import/extensions': ['error', 'ignorePackages'],
+
+    'vue/component-tags-order': [
+      'warn',
+      {
+        order: ['script', 'template', 'style'],
+      },
+    ],
+    'vue/order-in-components': 'warn',
   },
 };
