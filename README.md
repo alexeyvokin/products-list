@@ -1,4 +1,4 @@
-# idaproject-test
+# products-list
 
 ## Project setup
 ```
