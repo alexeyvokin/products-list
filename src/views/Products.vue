@@ -49,6 +49,18 @@ export default {
     ...mapState({
       products: 'list',
     }),
+    sortedProducts() {
+      if (this.view === viewValues.SORT_BY_NAME) {
+        return this.products.slice().sort((a, b) => (a.name > b.name ? 1 : -1));
+      }
+      if (this.view === viewValues.SORT_BY_PRICE_DESC) {
+        return this.products.slice().sort((a, b) => (+a.price < +b.price ? 1 : -1));
+      }
+      if (this.view === viewValues.SORT_BY_PRICE_ASC) {
+        return this.products.slice().sort((a, b) => (+a.price > +b.price ? 1 : -1));
+      }
+      return this.products;
+    },
   },
 
   created() {
@@ -81,7 +93,7 @@ export default {
       </BaseCard>
     </template>
 
-    <ProductsList :list="products" @delete="deleteProduct" />
+    <ProductsList :list="sortedProducts" @delete="deleteProduct" />
   </LayoutPage>
 </template>
 

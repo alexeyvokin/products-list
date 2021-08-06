@@ -43,7 +43,7 @@ export default {
 
     <div class="products-item-card__content">
       <h3 class="products-item-card__name">{{ name }}</h3>
-      <p v-if="description" class="products-item-card__description">
+      <p class="products-item-card__description">
         {{ description }}
       </p>
       <div class="products-item-card__price">{{ price }} руб.</div>
