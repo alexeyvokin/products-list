@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "text-mask-addons": "^3.8.0",
+    "text-mask-core": "^5.1.2",
     "vee-validate": "^3.4.11",
     "vue": "~2.6.11",
     "vue-router": "~3.1.6",
