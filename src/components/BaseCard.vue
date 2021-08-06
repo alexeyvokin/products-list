@@ -1,13 +1,20 @@
 <script>
 export default {
   name: 'BaseCard',
+
+  props: {
+    tag: {
+      type: String,
+      default: 'div',
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="base-card">
+  <component :is="tag" class="base-card">
     <slot />
-  </div>
+  </component>
 </template>
 
 <style lang="scss" scoped>

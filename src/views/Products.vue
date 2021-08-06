@@ -6,6 +6,7 @@ import PageTitle from '@/components/PageTitle.vue';
 import BaseCard from '@/components/BaseCard.vue';
 
 import ProductsAddForm from '@/components/ProductsAddForm.vue';
+import ProductsList from '@/components/ProductsList.vue';
 
 const viewOptions = {
   DEFAULT: 'по умолчанию',
@@ -24,6 +25,7 @@ export default {
     BaseCard,
     LayoutPage,
     ProductsAddForm,
+    ProductsList,
   },
 
   data() {
@@ -48,7 +50,7 @@ export default {
       </BaseCard>
     </template>
 
-    content
+    <ProductsList />
   </LayoutPage>
 </template>
 
@@ -63,6 +65,8 @@ export default {
 }
 
 .products__form {
+  top: vars.$space-3;
+  position: sticky;
   padding: vars.$space-3;
 }
 </style>
