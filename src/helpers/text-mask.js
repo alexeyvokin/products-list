@@ -6,10 +6,10 @@ export const priceMask = createNumberMask({
   prefix: '',
 });
 
-export function formatPrice(phone) {
-  const phoneMask = conformToMask(phone, priceMask, {
+export function formatPrice(price) {
+  const mask = conformToMask(price, priceMask, {
     guide: false,
     placeholderChar: '#',
   });
-  return phoneMask.conformedValue;
+  return mask.conformedValue;
 }

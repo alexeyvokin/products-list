@@ -1,5 +1,6 @@
 <script>
 import BaseCard from './BaseCard.vue';
+import { formatPrice } from '../helpers/text-mask.js';
 
 export default {
   name: 'ProductsItemCard',
@@ -27,6 +28,12 @@ export default {
     },
   },
 
+  computed: {
+    formatedPrice() {
+      return formatPrice(`${this.price || 0}`);
+    },
+  },
+
   methods: {
     deleteItem() {
       this.$emit('delete');
@@ -46,7 +53,7 @@ export default {
       <p class="products-item-card__description">
         {{ description }}
       </p>
-      <div class="products-item-card__price">{{ price }} руб.</div>
+      <div class="products-item-card__price">{{ formatedPrice }} руб.</div>
     </div>
 
     <button class="products-item-card__button" type="button" @click="deleteItem">
