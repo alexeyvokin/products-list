@@ -24,4 +24,4 @@ export function registerVeeValidateRules() {
 
     return 'Поле должно содержать url-адрес, начинающийся с http';
   });
-};
+}

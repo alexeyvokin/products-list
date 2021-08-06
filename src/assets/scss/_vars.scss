@@ -20,8 +20,6 @@ $space-4: $space-1 * 4;
 
 $border-radius: 4px;
 
-$control-padding: 10px $space-2 11px;
-
 // fonts
 $font-family: 'Source Sans Pro';
 
@@ -33,7 +31,8 @@ $font-size-subtitle: 20px;
 $font-size-accent: 24px;
 $font-size-base: 16px;
 $font-size-small: 12px;
-$font-size-extra-small: 10px;
+$font-size-x-small: 10px;
+$font-size-xx-small: 8px;
 
 // transitions
 $transition-duration: 0.3s;
@@ -44,13 +43,13 @@ $app-background: $white;
 $h1-font-size: $font-size-title;
 
 $button-border-radius: 10px;
-$button-padding: $control-padding;
+$button-padding: 10px $space-2 11px;
 
-$form-label-font-size: $font-size-extra-small;
+$form-label-font-size: $font-size-x-small;
 $form-field-font-size: $font-size-small;
 $form-field-border-radius: $border-radius;
 $form-field-placeholder-color: $dark-gray;
-$form-field-padding: $control-padding;
+$form-field-padding: 9px $space-2 10px;
 $form-field-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 $form-field-shadow-focus: 0 10px 25px rgba(0, 0, 0, 0.1); // also for hover state
 

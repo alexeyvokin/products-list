@@ -34,6 +34,7 @@ export default {
   methods: {
     handleSubmit() {
       this.$emit('submit', { ...this.form });
+      this.$refs.form.reset();
       this.form = createFormModel();
     },
   },
@@ -43,33 +44,63 @@ export default {
 <template>
   <ValidationObserver
     v-slot="{ invalid }"
+    ref="form"
     tag="form"
     class="products-add-form"
     @submit.prevent="!invalid && handleSubmit()"
   >
-    {{ invalid }}
     <div class="products-add-form__fields">
-      <FormItem label="Наименование товара" required>
-        <ValidationProvider v-slot="{ errors }" rules="required">
-          <BaseInput v-model="form.name" name="name" type="text" placeholder="Введите наименование товара" />
-          {{ errors }}
-        </ValidationProvider>
-      </FormItem>
+      <ValidationProvider v-slot="{ errors }" rules="required">
+        <FormItem label="Наименование товара" required>
+          <BaseInput
+            v-model="form.name"
+            name="name"
+            type="text"
+            placeholder="Введите наименование товара"
+            :error="!!errors[0]"
+          />
+
+          <template v-if="errors[0]" #errors>
+            {{ errors[0] }}
+          </template>
+        </FormItem>
+      </ValidationProvider>
+
       <FormItem label="Описание товара">
         <BaseTextarea v-model="form.description" name="description" placeholder="Введите описание товара" />
       </FormItem>
-      <FormItem label="Ссылка на изображение товара" required>
-        <ValidationProvider v-slot="{ errors }" rules="required|url">
-          <BaseInput v-model="form.preview" name="preview" type="text" placeholder="Введите ссылку" />
-          {{ errors }}
-        </ValidationProvider>
-      </FormItem>
-      <FormItem label="Цена товара" required>
-        <ValidationProvider v-slot="{ errors }" rules="required">
-          <BaseInput v-model.number="form.price" name="price" type="text" placeholder="Введите цену" />
-          {{ errors }}
-        </ValidationProvider>
-      </FormItem>
+
+      <ValidationProvider v-slot="{ errors }" rules="required|url">
+        <FormItem label="Ссылка на изображение товара" required>
+          <BaseInput
+            v-model="form.preview"
+            name="preview"
+            type="text"
+            placeholder="Введите ссылку"
+            :error="!!errors[0]"
+          />
+
+          <template v-if="errors[0]" #errors>
+            {{ errors[0] }}
+          </template>
+        </FormItem>
+      </ValidationProvider>
+
+      <ValidationProvider v-slot="{ errors }" rules="required">
+        <FormItem label="Цена товара" required>
+          <BaseInput
+            v-model.number="form.price"
+            name="price"
+            type="text"
+            placeholder="Введите цену"
+            :error="!!errors[0]"
+          />
+
+          <template v-if="errors[0]" #errors>
+            {{ errors[0] }}
+          </template>
+        </FormItem>
+      </ValidationProvider>
     </div>
 
     <BaseButton type="submit" :disabled="invalid">Добавить товар</BaseButton>
@@ -78,6 +109,6 @@ export default {
 
 <style lang="scss" scoped>
 .products-add-form__fields {
-  margin-bottom: vars.$space-3;
+  margin-bottom: vars.$space-1;
 }
 </style>

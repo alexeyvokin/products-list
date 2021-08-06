@@ -47,6 +47,7 @@ export default {
 $arrow-size: 5px;
 
 .base-select {
+  border: 1px solid transparent;
   position: relative;
   display: inline-block;
   color: vars.$form-field-placeholder-color;
