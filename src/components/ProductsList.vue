@@ -7,13 +7,32 @@ export default {
   components: {
     ProductsItemCard,
   },
+
+  props: {
+    list: {
+      type: Array,
+      required: true,
+    },
+  },
+
+  methods: {
+    deleteItem(item) {
+      this.$emit('delete', item);
+    },
+  },
 };
 </script>
 
 <template>
   <ul class="products-list">
-    <li v-for="item in 12" :key="item" class="products-list__item">
-      <ProductsItemCard :name="`${item}`" :description="`${item}`" :price="`${item}`" />
+    <li v-for="item in list" :key="item.id" class="products-list__item">
+      <ProductsItemCard
+        :name="item.name"
+        :description="item.description"
+        :price="item.price"
+        :preview="item.preview"
+        @delete="deleteItem(item)"
+      />
     </li>
   </ul>
 </template>
@@ -22,7 +41,7 @@ export default {
 .products-list {
   display: grid;
   align-items: stretch;
-  grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+  grid-template-columns: repeat(3, minmax(332px, 1fr));
   list-style: none;
   padding: 0;
   margin: 0;

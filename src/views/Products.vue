@@ -9,6 +9,8 @@ import BaseCard from '@/components/BaseCard.vue';
 import ProductsAddForm from '@/components/ProductsAddForm.vue';
 import ProductsList from '@/components/ProductsList.vue';
 
+import { ACTIONS, mapActions, mapState } from '@/store/modules/products.js';
+
 const viewValues = {
   DEFAULT: 'default',
   SORT_BY_NAME: 'sortByName',
@@ -42,6 +44,24 @@ export default {
       view: viewValues.DEFAULT,
     };
   },
+
+  computed: {
+    ...mapState({
+      products: 'list',
+    }),
+  },
+
+  created() {
+    this.initProducts();
+  },
+
+  methods: {
+    ...mapActions({
+      initProducts: ACTIONS.PRODUCTS_INIT,
+      addProduct: ACTIONS.PRODUCTS_ADD_ITEM,
+      deleteProduct: ACTIONS.PRODUCTS_DELETE_ITEM,
+    }),
+  },
 };
 </script>
 
@@ -57,11 +77,11 @@ export default {
 
     <template #sidebar>
       <BaseCard class="products__form">
-        <ProductsAddForm />
+        <ProductsAddForm @submit="addProduct" />
       </BaseCard>
     </template>
 
-    <ProductsList />
+    <ProductsList :list="products" @delete="deleteProduct" />
   </LayoutPage>
 </template>
 
