@@ -2,6 +2,7 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
 
 import BaseInput from './BaseInput.vue';
+import BaseInputPrice from './BaseInputPrice.vue';
 import BaseTextarea from './BaseTextarea.vue';
 import BaseButton from './BaseButton.vue';
 import FormItem from './FormItem.vue';
@@ -20,6 +21,7 @@ export default {
     ValidationObserver,
     ValidationProvider,
     BaseInput,
+    BaseInputPrice,
     BaseTextarea,
     BaseButton,
     FormItem,
@@ -88,8 +90,8 @@ export default {
 
       <ValidationProvider v-slot="{ errors }" rules="required">
         <FormItem label="Цена товара" required>
-          <BaseInput
-            v-model.number="form.price"
+          <BaseInputPrice
+            v-model="form.price"
             name="price"
             type="text"
             placeholder="Введите цену"
