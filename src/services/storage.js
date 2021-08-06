@@ -1,11 +1,11 @@
 const storage = localStorage;
 
 export function loadStorageItem(key) {
-  return storage.getItem(key);
+  return JSON.parse(storage.getItem(key)) || null;
 }
 
 export function saveStorageItem(key, value) {
-  storage.setItem(key, value);
+  storage.setItem(key, JSON.stringify(value));
   return value;
 }
 

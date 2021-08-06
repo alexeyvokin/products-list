@@ -20,6 +20,8 @@ $space-4: $space-1 * 4;
 
 $border-radius: 4px;
 
+$control-padding: 10px $space-2 11px;
+
 // fonts
 $font-family: 'Source Sans Pro';
 
@@ -37,7 +39,6 @@ $font-size-extra-small: 10px;
 $transition-duration: 0.3s;
 
 // elements
-$control-padding: 10px $space-2 11px;
 $app-background: $white;
 
 $h1-font-size: $font-size-title;

@@ -40,16 +40,16 @@ export default {
   <form class="products-add-form" @submit.prevent="handleSubmit">
     <div class="products-add-form__fields">
       <FormItem label="Наименование товара" required>
-        <BaseInput v-model="form.name" type="text" placeholder="Введите наименование товара" />
+        <BaseInput v-model="form.name" name="name" type="text" placeholder="Введите наименование товара" />
       </FormItem>
       <FormItem label="Описание товара">
-        <BaseTextarea v-model="form.description" placeholder="Введите описание товара" />
+        <BaseTextarea v-model="form.description" name="description" placeholder="Введите описание товара" />
       </FormItem>
       <FormItem label="Ссылка на изображение товара" required>
-        <BaseInput v-model="form.preview" type="text" placeholder="Введите ссылку" />
+        <BaseInput v-model="form.preview" name="preview" type="text" placeholder="Введите ссылку" />
       </FormItem>
       <FormItem label="Цена товара" required>
-        <BaseInput v-model="form.price" type="text" placeholder="Введите цену" />
+        <BaseInput v-model.number="form.price" name="price" type="text" placeholder="Введите цену" />
       </FormItem>
     </div>
 
