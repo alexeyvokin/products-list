@@ -18,12 +18,18 @@ export default {
       default: '',
     },
     price: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
     preview: {
       type: String,
       required: true,
+    },
+  },
+
+  methods: {
+    deleteItem() {
+      this.$emit('delete');
     },
   },
 };
@@ -32,7 +38,7 @@ export default {
 <template>
   <BaseCard tag="article" class="products-item-card">
     <div class="products-item-card__preview">
-      <img src="/images/preview_stub.png" alt="preview" :title="name" class="products-item-card__image" />
+      <img :src="preview" alt="preview" :title="name" class="products-item-card__image" />
     </div>
 
     <div class="products-item-card__content">
@@ -40,15 +46,20 @@ export default {
       <p v-if="description" class="products-item-card__description">
         {{ description }}
       </p>
-      <div class="products-item-card__price">
-        {{ price }}
-      </div>
+      <div class="products-item-card__price">{{ price }} руб.</div>
     </div>
+
+    <button class="products-item-card__button" type="button" @click="deleteItem">
+      <img src="../assets/icons/bucket.svg" alt="delete icon" title="Удалить" />
+    </button>
   </BaseCard>
 </template>
 
 <style lang="scss" scoped>
+$button-size: 32px;
+
 .products-item-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 423px;
@@ -91,5 +102,37 @@ export default {
 
 .products-item-card__price {
   font-size: vars.$font-size-accent;
+}
+
+.products-item-card__button {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  opacity: 0;
+  cursor: pointer;
+  width: $button-size;
+  height: $button-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: vars.$button-border-radius;
+  background-color: vars.$danger;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all vars.$transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: mix($color1: vars.$danger, $color2: vars.$white, $weight: 90);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    background-color: mix($color1: vars.$danger, $color2: vars.$black, $weight: 90);
+  }
+}
+
+.products-item-card:hover .products-item-card__button {
+  opacity: 1;
 }
 </style>
