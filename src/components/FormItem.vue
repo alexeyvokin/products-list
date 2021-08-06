@@ -26,6 +26,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:math";
+
 .form-item {
   display: flex;
   flex-direction: column;
@@ -37,7 +39,7 @@ export default {
 
 .form-item__label {
   font-size: vars.$font-size-extra-small;
-  margin-bottom: vars.$space-1 / 2;
+  margin-bottom: math.div(vars.$space-1, 2);
 }
 
 .form-item__label--required {
