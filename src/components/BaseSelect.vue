@@ -68,6 +68,7 @@ $arrow-size: 5px;
 }
 
 .base-select__input {
+  cursor: pointer;
   border: none;
   color: currentColor;
   border-radius: vars.$form-field-border-radius;
