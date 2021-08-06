@@ -47,7 +47,7 @@ export default {
     ref="form"
     tag="form"
     class="products-add-form"
-    @submit.prevent="!invalid && handleSubmit()"
+    @submit.prevent="handleSubmit"
   >
     <div class="products-add-form__fields">
       <ValidationProvider v-slot="{ errors }" rules="required">
@@ -75,7 +75,7 @@ export default {
           <BaseInput
             v-model="form.preview"
             name="preview"
-            type="text"
+            type="url"
             placeholder="Введите ссылку"
             :error="!!errors[0]"
           />
