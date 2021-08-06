@@ -3,25 +3,34 @@ import LayoutPage from '@/layouts/LayoutPage.vue';
 
 import PageTitle from '@/components/PageTitle.vue';
 
+import BaseSelect from '@/components/BaseSelect.vue';
 import BaseCard from '@/components/BaseCard.vue';
 
 import ProductsAddForm from '@/components/ProductsAddForm.vue';
 import ProductsList from '@/components/ProductsList.vue';
 
-const viewOptions = {
-  DEFAULT: 'по умолчанию',
-  SORT_BY_NAME: 'по наименованию',
-  SORT_BY_PRICE_DESC: 'по убыванию',
-  SORT_BY_PRICE_ASC: 'по возрастанию',
+const viewValues = {
+  DEFAULT: 'default',
+  SORT_BY_NAME: 'sortByName',
+  SORT_BY_PRICE_DESC: 'sortByPriceDesc',
+  SORT_BY_PRICE_ASC: 'sortByPriceAsc',
 };
 
+const viewOptions = [
+  { label: 'по умолчанию', value: viewValues.DEFAULT },
+  { label: 'по наименованию', value: viewValues.SORT_BY_NAME },
+  { label: 'по убыванию', value: viewValues.SORT_BY_PRICE_DESC },
+  { label: 'по возрастанию', value: viewValues.SORT_BY_PRICE_ASC },
+];
+
 export default {
-  viewOptions: Object.values(viewOptions),
+  viewOptions,
 
   name: 'Products',
 
   components: {
     PageTitle,
+    BaseSelect,
     BaseCard,
     LayoutPage,
     ProductsAddForm,
@@ -30,7 +39,7 @@ export default {
 
   data() {
     return {
-      view: viewOptions.DEFAULT,
+      view: viewValues.DEFAULT,
     };
   },
 };
@@ -41,6 +50,8 @@ export default {
     <template #header>
       <div class="products__header">
         <PageTitle>Добавление товара</PageTitle>
+        <div class="products__spacer"></div>
+        <BaseSelect v-model="view" :options="$options.viewOptions" />
       </div>
     </template>
 
@@ -55,7 +66,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// .products {}
 .products__header {
   display: flex;
 }
