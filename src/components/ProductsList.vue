@@ -55,4 +55,8 @@ export default {
     grid-template-columns: 1fr;
   }
 }
+
+.products-list__item {
+  min-width: 0;
+}
 </style>
