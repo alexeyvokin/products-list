@@ -72,7 +72,7 @@ export default {
         <BaseTextarea v-model="form.description" name="description" placeholder="Введите описание товара" />
       </FormItem>
 
-      <ValidationProvider v-slot="{ errors }" rules="required|url">
+      <ValidationProvider v-slot="{ errors }" rules="required">
         <FormItem label="Ссылка на изображение товара" required>
           <BaseInput
             v-model="form.preview"
