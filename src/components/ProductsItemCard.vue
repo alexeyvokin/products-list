@@ -97,6 +97,8 @@ $button-size: 32px;
 .products-item-card__name,
 .products-item-card__description {
   margin: 0 0 vars.$space-2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .products-item-card__name {
