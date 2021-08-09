@@ -78,6 +78,7 @@ $arrow-size: 5px;
   font-size: vars.$form-field-font-size;
   padding: 10px 29px 11px vars.$space-2;
   appearance: none;
+  width: 100%;
 
   &:hover,
   &:focus {

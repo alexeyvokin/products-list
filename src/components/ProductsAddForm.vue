@@ -11,7 +11,7 @@ const createFormModel = () => ({
   name: '',
   description: '',
   preview: '',
-  price: '',
+  price: 0,
 });
 
 export default {
@@ -44,13 +44,7 @@ export default {
 </script>
 
 <template>
-  <ValidationObserver
-    v-slot="{ invalid }"
-    ref="form"
-    tag="form"
-    class="products-add-form"
-    @submit.prevent="handleSubmit"
-  >
+  <ValidationObserver v-slot="{ valid }" ref="form" tag="form" class="products-add-form" @submit.prevent="handleSubmit">
     <div class="products-add-form__fields">
       <ValidationProvider v-slot="{ errors }" rules="required">
         <FormItem label="Наименование товара" required>
@@ -72,7 +66,7 @@ export default {
         <BaseTextarea v-model="form.description" name="description" placeholder="Введите описание товара" />
       </FormItem>
 
-      <ValidationProvider v-slot="{ errors }" rules="required|url">
+      <ValidationProvider v-slot="{ errors }" rules="required">
         <FormItem label="Ссылка на изображение товара" required>
           <BaseInput
             v-model="form.preview"
@@ -88,7 +82,7 @@ export default {
         </FormItem>
       </ValidationProvider>
 
-      <ValidationProvider v-slot="{ errors }" rules="required">
+      <ValidationProvider v-slot="{ errors }" rules="min_value:1">
         <FormItem label="Цена товара" required>
           <BaseInputPrice
             v-model="form.price"
@@ -105,7 +99,7 @@ export default {
       </ValidationProvider>
     </div>
 
-    <BaseButton type="submit" :disabled="invalid">Добавить товар</BaseButton>
+    <BaseButton type="submit" :disabled="!valid">Добавить товар</BaseButton>
   </ValidationObserver>
 </template>
 
