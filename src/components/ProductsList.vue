@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <ul class="products-list">
+  <transition-group name="products-list" tag="ul" class="products-list">
     <li v-for="item in list" :key="item.id" class="products-list__item">
       <ProductsItemCard
         :name="item.name"
@@ -34,29 +34,77 @@ export default {
         @delete="deleteItem(item)"
       />
     </li>
-  </ul>
+  </transition-group>
 </template>
 
 <style lang="scss" scoped>
 .products-list {
-  display: grid;
-  align-items: stretch;
-  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: vars.$space-2;
-
-  @include mixins.media('lg', 'to') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include mixins.media('sm', 'to') {
-    grid-template-columns: 1fr;
-  }
 }
 
 .products-list__item {
-  min-width: 0;
+  width: calc(33.33% - #{(vars.$space-2 * 2) / 3});
+  flex-grow: 0;
+
+  @include mixins.media('lg', 'from') {
+    &:nth-last-child(n + 4) {
+      margin-bottom: vars.$space-2;
+    }
+
+    &:not(:nth-child(3n)) {
+      margin-right: vars.$space-2;
+    }
+  }
+
+  @include mixins.media('lg', 'to') {
+    width: calc(50% - #{vars.$space-2 / 2});
+
+    @include mixins.media('sm', 'from') {
+      &:nth-last-child(n + 3) {
+        margin-bottom: vars.$space-2;
+      }
+
+      &:not(:nth-child(2n)) {
+        margin-right: vars.$space-2;
+      }
+    }
+  }
+
+  @include mixins.media('sm', 'to') {
+    width: 100%;
+
+    &:nth-last-child(n + 2) {
+      margin-bottom: vars.$space-2;
+    }
+  }
+}
+
+.products-list-move {
+  transition: transform 1s;
+}
+
+.products-list-enter,
+.products-list-leave-to {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.products-list-enter-active,
+.products-list-leave-active {
+  transition: all 1s;
+}
+
+.products-list-leave-active {
+  position: absolute;
+}
+
+.products-list-enter-to,
+.products-list-leave {
+  opacity: 1;
 }
 </style>
