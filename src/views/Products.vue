@@ -100,6 +100,10 @@ export default {
 <style lang="scss" scoped>
 .products__header {
   display: flex;
+
+  @include mixins.media('xxs', 'to') {
+    flex-direction: column;
+  }
 }
 
 .products__spacer {
@@ -110,5 +114,9 @@ export default {
   top: vars.$space-3;
   position: sticky;
   padding: vars.$space-3;
+
+  @include mixins.media('xxs', 'to') {
+    padding: vars.$space-2;
+  }
 }
 </style>
