@@ -7,4 +7,15 @@ export function registerVeeValidateRules() {
     ...required,
     message: 'Поле обязательно для заполнения',
   });
+
+  extend('min_value', {
+    validate(value, { minValue = 0 }) {
+      if (Number(value) >= Number(minValue)) {
+        return true;
+      }
+
+      return `Поле должно содержать число больше или равное ${minValue}`;
+    },
+    params: ['minValue'],
+  });
 }

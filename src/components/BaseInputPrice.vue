@@ -11,6 +11,8 @@ export default {
     BaseInput,
   },
 
+  inheritAttrs: false,
+
   model: {
     prop: 'modelValue',
     event: 'update:modelValue',
@@ -39,8 +41,14 @@ export default {
       },
       set(value) {
         this.localValue = value;
-        this.$emit('update:modelValue', this.priceValue);
+        if (this.modelValue !== this.priceValue) {
+          this.$emit('update:modelValue', this.priceValue);
+        }
       },
+    },
+    inheritedListeners() {
+      const { 'update:modelValue': _udpateModelValue, ...inheritedListeners } = this.$listeners;
+      return inheritedListeners;
     },
   },
 
@@ -56,5 +64,12 @@ export default {
 </script>
 
 <template>
-  <BaseInput v-model="modelValueWrapper" :mask="$options.priceMask" type="text" inputmode="numeric" />
+  <BaseInput
+    v-model="modelValueWrapper"
+    v-bind="$attrs"
+    :mask="$options.priceMask"
+    type="text"
+    inputmode="numeric"
+    v-on="inheritedListeners"
+  />
 </template>

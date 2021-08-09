@@ -60,6 +60,10 @@ export default {
       // see more: https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#known-issues
       return TEXT_MASK_AVAILABLE_INPUT_TYPES.includes(this.type);
     },
+    inheritedListeners() {
+      const { 'update:modelValue': _udpateModelValue, ...inheritedListeners } = this.$listeners;
+      return inheritedListeners;
+    },
   },
 
   watch: {
@@ -122,6 +126,7 @@ export default {
     v-model="modelValueWrapper"
     :type="type"
     :class="{ 'base-input': true, 'base-input--error': error }"
+    v-on="inheritedListeners"
   />
 </template>
 
