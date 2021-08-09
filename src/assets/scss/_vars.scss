@@ -12,6 +12,15 @@ $purple-black: #49485e;
 $primary: $green;
 $danger: $peach;
 
+// breakpoints
+$screens: (
+  'xxs': 480px,
+  'xs': 600px,
+  'sm':  768px,
+  'md':  1024px,
+  'lg':  1280px,
+);
+
 // sizes
 $space-1: 8px;
 $space-2: $space-1 * 2;
