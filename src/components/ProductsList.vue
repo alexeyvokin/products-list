@@ -41,10 +41,18 @@ export default {
 .products-list {
   display: grid;
   align-items: stretch;
-  grid-template-columns: repeat(3, minmax(332px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   list-style: none;
   padding: 0;
   margin: 0;
   gap: vars.$space-2;
+
+  @include mixins.media('lg', 'to') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.media('sm', 'to') {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
